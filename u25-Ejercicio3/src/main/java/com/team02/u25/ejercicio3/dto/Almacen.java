@@ -28,7 +28,7 @@ public class Almacen {
 	private int capacidad;
 
 	@OneToMany
-	@JoinColumn(name = "num_referencia")
+	@JoinColumn(name = "codigo")
 	private List<Caja> cajas;
 
 	public Almacen() {

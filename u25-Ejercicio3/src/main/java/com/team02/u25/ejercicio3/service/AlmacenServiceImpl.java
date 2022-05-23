@@ -3,10 +3,12 @@ package com.team02.u25.ejercicio3.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.team02.u25.ejercicio3.dto.Almacen;
 import com.team02.u25.ejercicio3.dao.IAlmacenDAO;
 
+@Service
 public class AlmacenServiceImpl implements IAlmacenService{
 	
 	@Autowired
@@ -25,20 +27,20 @@ public class AlmacenServiceImpl implements IAlmacenService{
 	}
 
 	@Override
-	public Almacen almacenXID(Long id) {
+	public Almacen almacenXID(int codigo) {
 		// TODO Auto-generated method stub
-		return iAlmacenDAO.findById(id).get();
+		return iAlmacenDAO.findById(codigo).get();
 	}
 
 	@Override
-	public Almacen actualizarAlmacen(Almacen Almacen) {
+	public Almacen actualizarAlmacen(Almacen almacen) {
 		// TODO Auto-generated method stub
-		return iAlmacenDAO.save(Almacen);
+		return iAlmacenDAO.save(almacen);
 	}
 
 	@Override
-	public void eliminarAlmacen(Long id) {
-		iAlmacenDAO.deleteById(id);		
+	public void eliminarAlmacen(int codigo) {
+		iAlmacenDAO.deleteById(codigo);		
 	}
 
 }

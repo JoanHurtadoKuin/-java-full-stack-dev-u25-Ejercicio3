@@ -3,10 +3,12 @@ package com.team02.u25.ejercicio3.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.team02.u25.ejercicio3.dao.ICajaDAO;
 import com.team02.u25.ejercicio3.dto.Caja;
 
+@Service
 public class CajaServiceImpl implements ICajaService{
 
 	
@@ -26,9 +28,9 @@ public class CajaServiceImpl implements ICajaService{
 	}
 
 	@Override
-	public Caja CajaXID(Long id) {
+	public Caja CajaXID(String codigo) {
 		// TODO Auto-generated method stub
-		return iCajaDAO.findById(id).get();
+		return iCajaDAO.findById(codigo).get();
 	}
 
 	@Override
@@ -38,7 +40,7 @@ public class CajaServiceImpl implements ICajaService{
 	}
 
 	@Override
-	public void eliminarCaja(Long id) {
-		iCajaDAO.deleteById(id);		
+	public void eliminarCaja(String codigo) {
+		iCajaDAO.deleteById(codigo);		
 	}
 }

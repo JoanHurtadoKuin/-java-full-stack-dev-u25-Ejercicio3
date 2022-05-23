@@ -32,24 +32,24 @@ public class AlmacenController {
 		return almacenServiceImpl.guardarAlmacen(Almacen);
 	}
 	
-	@GetMapping("/{id}")
-	public Almacen AlmacenXID(@PathVariable(name="id") Long id) {
+	@GetMapping("/{codigo}")
+	public Almacen AlmacenXID(@PathVariable(name="codigo") int codigo) {
 		
 		Almacen Almacen_xid = new Almacen();
 		
-		Almacen_xid = almacenServiceImpl.almacenXID(id);
+		Almacen_xid = almacenServiceImpl.almacenXID(codigo);
 		
 		return Almacen_xid;
 		
 	}
 	
 	@PutMapping("/{id}")
-	public Almacen actualizarAlmacen(@PathVariable(name="id")Long id,@RequestBody Almacen almacen) {
+	public Almacen actualizarAlmacen(@PathVariable(name="codigo")int codigo,@RequestBody Almacen almacen) {
 		
 		Almacen almacen_seleccionado= new Almacen();
 		Almacen almacen_actualizado= new Almacen();
 		
-		almacen_seleccionado= almacenServiceImpl.almacenXID(id);
+		almacen_seleccionado= almacenServiceImpl.almacenXID(codigo);
 		
 		almacen_seleccionado.setId(almacen.getId());
 		almacen_seleccionado.setLugar(almacen.getLugar());
@@ -64,8 +64,8 @@ public class AlmacenController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void eleiminarAlmacen(@PathVariable(name="id")Long id) {
-		almacenServiceImpl.eliminarAlmacen(id);
+	public void eleiminarAlmacen(@PathVariable(name="id")int codigo) {
+		almacenServiceImpl.eliminarAlmacen(codigo);
 	}
 	
 }

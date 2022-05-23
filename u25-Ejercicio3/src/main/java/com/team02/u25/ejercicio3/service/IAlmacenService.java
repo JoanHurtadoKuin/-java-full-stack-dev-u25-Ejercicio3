@@ -11,9 +11,9 @@ public interface IAlmacenService {
 
 	public Almacen guardarAlmacen(Almacen almacen);
 
-	public Almacen almacenXID(Long id);
+	public Almacen almacenXID(int codigo);
 
 	public Almacen actualizarAlmacen(Almacen almacen);
 
-	public void eliminarAlmacen(Long id);
+	public void eliminarAlmacen(int codigo);
 }

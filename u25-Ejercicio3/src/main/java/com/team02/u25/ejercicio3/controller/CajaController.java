@@ -32,24 +32,24 @@ public class CajaController {
 		return cajaServiceImpl.guardarCaja(caja);
 	}
 	
-	@GetMapping("/{id}")
-	public Caja CajaXID(@PathVariable(name="id") Long id) {
+	@GetMapping("/{codigo}")
+	public Caja CajaXID(@PathVariable(name="num_referencia") String codigo) {
 		
 		Caja Caja_xid = new Caja();
 		
-		Caja_xid = cajaServiceImpl.CajaXID(id);
+		Caja_xid = cajaServiceImpl.CajaXID(codigo);
 		
 		return Caja_xid;
 		
 	}
 	
-	@PutMapping("/{id}")
-	public Caja actualizarCaja(@PathVariable(name="id")Long id,@RequestBody Caja caja) {
+	@PutMapping("/{codigo}")
+	public Caja actualizarCaja(@PathVariable(name="num_referencia")String codigo,@RequestBody Caja caja) {
 		
 		Caja Caja_seleccionado= new Caja();
 		Caja Caja_actualizado= new Caja();
 		
-		Caja_seleccionado= cajaServiceImpl.CajaXID(id);
+		Caja_seleccionado= cajaServiceImpl.CajaXID(codigo);
 		
 		Caja_seleccionado.setNumReferencia(caja.getNumReferencia());
 		Caja_seleccionado.setContenido(caja.getContenido());
@@ -65,8 +65,8 @@ public class CajaController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void eleiminarCaja(@PathVariable(name="id")Long id) {
-		cajaServiceImpl.eliminarCaja(id);
+	public void eleiminarCaja(@PathVariable(name="id")String codigo) {
+		cajaServiceImpl.eliminarCaja(codigo);
 	}
 	
 }

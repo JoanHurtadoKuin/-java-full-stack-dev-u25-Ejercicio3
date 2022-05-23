@@ -19,33 +19,33 @@ public class Caja {
 
 	//Atributos de entidad cliente
 	@Id
-	private Long numReferencia;
+	private int num_referencia;
 	@Column(name = "contenido")//no hace falta si se llama igual
 	private String contenido;
 	@Column(name = "valor")//no hace falta si se llama igual
 	private int valor;
 	
 	@ManyToOne
-    @JoinColumn(name="id_departamento")
+    @JoinColumn(name="codigo_almacen")
     private Almacen almacen;
 	
 	public Caja() {
 		
 	}
 
-	public Caja(Long numReferencia, String contenido, int valor, Almacen almacen) {
-		this.numReferencia = numReferencia;
+	public Caja(int numReferencia, String contenido, int valor, Almacen almacen) {
+		this.num_referencia = numReferencia;
 		this.contenido = contenido;
 		this.valor = valor;
 		this.almacen = almacen;
 	}
 
-	public Long getNumReferencia() {
-		return numReferencia;
+	public int getNumReferencia() {
+		return num_referencia;
 	}
 
-	public void setNumReferencia(Long numReferencia) {
-		this.numReferencia = numReferencia;
+	public void setNumReferencia(int numReferencia) {
+		this.num_referencia = numReferencia;
 	}
 
 	public String getContenido() {
@@ -74,7 +74,7 @@ public class Caja {
 
 	@Override
 	public String toString() {
-		return "Caja [numReferencia=" + numReferencia + ", contenido=" + contenido + ", valor=" + valor + ", almacen="
+		return "Caja [numReferencia=" + num_referencia + ", contenido=" + contenido + ", valor=" + valor + ", almacen="
 				+ almacen + "]";
 	}
 	

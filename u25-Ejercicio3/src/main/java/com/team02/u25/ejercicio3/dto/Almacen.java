@@ -21,32 +21,32 @@ public class Almacen {
 	// Atributos de entidad cliente
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
-	private Long id;
+	private int codigo;
 	@Column(name = "lugar") // no hace falta si se llama igual
 	private String lugar;
 	@Column(name = "capacidad") // no hace falta si se llama igual
 	private int capacidad;
 
 	@OneToMany
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "num_referencia")
 	private List<Caja> cajas;
 
 	public Almacen() {
 
 	}
 
-	public Almacen(Long id, String lugar, int capacidad) {
-		this.id = id;
+	public Almacen(int id, String lugar, int capacidad) {
+		this.codigo = id;
 		this.lugar = lugar;
 		this.capacidad = capacidad;
 	}
 
-	public Long getId() {
-		return id;
+	public int getId() {
+		return codigo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(int id) {
+		this.codigo = id;
 	}
 
 	public String getLugar() {
@@ -66,7 +66,7 @@ public class Almacen {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caja")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Caja")
 	public List<Caja> getCajas() {
 		return cajas;
 	}
@@ -77,7 +77,7 @@ public class Almacen {
 
 	@Override
 	public String toString() {
-		return "Almacen [id=" + id + ", lugar=" + lugar + ", capacidad=" + capacidad + "]";
+		return "Almacen [id=" + codigo + ", lugar=" + lugar + ", capacidad=" + capacidad + "]";
 	}
 
 }
